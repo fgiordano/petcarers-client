@@ -8,13 +8,15 @@ import { SessionService } from './session.service';
 import { AppComponent } from './app.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SignUpComponent,
-    HomePageComponent
+    HomePageComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
