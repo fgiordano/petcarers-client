@@ -7,12 +7,14 @@ import { SessionService } from './session.service';
 
 import { AppComponent } from './app.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignUpComponent
+    SignUpComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
