@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SessionService } from '../session.service';
 
 @Component({
@@ -7,6 +8,95 @@ import { SessionService } from '../session.service';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
+
+isLoggedOut: boolean = false;
+
+  signUpInfo = {
+    username: '',
+    email: '',
+    password: ''
+  };
+
+  errorMessage: string;
+
+  loginInfo = {
+    username: '',
+    password: ''
+  };
+
+  loginErrorMessage: string;
+
+
+  constructor(
+    private authThang: SessionService,
+    private routerThang: Router
+  ) { }
+
+  ngOnInit() {
+    this.authThang.checklogin()
+      // If success, we are logged in.
+      .then((resultFromApi) => {
+          this.routerThang.navigate(['/']);
+      })
+
+      // Even if you don't do anything on error, catch to avoid a console error.
+      .catch((err) => {
+          this.isLoggedOut = true;
+      });
+  }
+
+  doSignUp() {
+    this.authThang.signup(this.signUpInfo)
+      .then((resultFromApi) => {
+          // clear form
+          this.signUpInfo = {
+            username: '',
+            email: '',
+            password: ''
+          };
+
+          // clear error message
+          this.errorMessage = "";
+
+          // redirect to /camels
+          this.routerThang.navigate(['/']);
+      })
+      .catch((err) => {
+          const parsedError = err.json();
+          this.errorMessage = parsedError.message + ' 😤';
+      });
+  } // close doSignUp()
+
+  doLogin() {
+    this.authThang.login(this.loginInfo)
+      .then((resultFromApi) => {
+          // clear the form
+          this.loginInfo = {
+            username: '',
+            password: ''
+          };
+
+          // clear the error message
+          this.loginErrorMessage = "";
+
+          // redirect to /camels
+          this.routerThang.navigate(['/']);
+      })
+      .catch((err) => {
+          const parsedError = err.json();
+          this.loginErrorMessage = parsedError.message + ' 😤';
+      });
+  } // close doLogin()
+
+}
+
+
+
+
+
+
+
+
 
  formInfo = {
   	username: '',
