@@ -12,17 +12,17 @@
   <form (ngSubmit)="doSignUp()">
     <label for="username-input"> Username </label>
     <input  id="username-input" type="text" placeholder="Blanche Bourbon"
-        [(ngModel)]="signUpInfo.username" name="usernameValue">
+        [(ngModel)]="signUpInfo.username" name="signupUsername">
     <br>
 
     <label for="email-input"> Email </label>
     <input  id="email-input" type="email" placeholder="blah@example.com"
-        [(ngModel)]="signUpInfo.email" name="emailValue">
+        [(ngModel)]="signUpInfo.email" name="signupEmail">
     <br>
 
     <label for="password-input"> Password </label>
     <input  id="password-input" type="password" placeholder="*****"
-        [(ngModel)]="signUpInfo.password" name="passwordValue">
+        [(ngModel)]="signUpInfo.password" name="signupPassword">
     <br>
 
     <button> Sign Up </button>

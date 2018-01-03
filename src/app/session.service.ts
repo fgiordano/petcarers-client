@@ -20,7 +20,7 @@ export class SessionService {
 
           // Form body information to send to the back end (req.body)
           {
-            signupFullName: componentInfo.fullName,
+            signupUsername: componentInfo.username,
             signupEmail: componentInfo.email,
             signupPassword: componentInfo.password
           },

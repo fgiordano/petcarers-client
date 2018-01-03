@@ -36,7 +36,7 @@ isLoggedOut: boolean = false;
     this.authThang.checklogin()
       // If success, we are logged in.
       .then((resultFromApi) => {
-          this.routerThang.navigate(['/']);
+          this.routerThang.navigate(['/signup']);
       })
 
       // Even if you don't do anything on error, catch to avoid a console error.
@@ -59,7 +59,7 @@ isLoggedOut: boolean = false;
           this.errorMessage = "";
 
           // redirect to /camels
-          this.routerThang.navigate(['/']);
+          this.routerThang.navigate(['/signup']);
       })
       .catch((err) => {
           const parsedError = err.json();
@@ -80,7 +80,7 @@ isLoggedOut: boolean = false;
           this.loginErrorMessage = "";
 
           // redirect to /camels
-          this.routerThang.navigate(['/']);
+          this.routerThang.navigate(['/signup']);
       })
       .catch((err) => {
           const parsedError = err.json();
