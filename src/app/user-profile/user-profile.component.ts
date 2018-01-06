@@ -12,6 +12,8 @@ import { EditUserService } from '../edit-user.service';
 })
 export class UserProfileComponent implements OnInit {
 
+  isShowingForm: boolean = false;
+
   errorMessage = "";
 
   logoutError = "";
@@ -62,6 +64,10 @@ export class UserProfileComponent implements OnInit {
   		this.errorMessage = parsedError.message + ' ';
   	});
   }
+
+  showEditForm() {
+    this.isShowingForm = true;
+  } // close showEditForm()
 
 
   
