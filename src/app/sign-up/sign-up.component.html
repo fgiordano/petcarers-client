@@ -12,17 +12,12 @@
   <form (ngSubmit)="doSignUp()">
     <label for="username-input"> Username </label>
     <input  id="username-input" type="text" placeholder="Blanche Bourbon"
-        [(ngModel)]="signUpInfo.username" name="signupUsername">
-    <br>
-
-    <label for="email-input"> Email </label>
-    <input  id="email-input" type="email" placeholder="blah@example.com"
-        [(ngModel)]="signUpInfo.email" name="signupEmail">
+        [(ngModel)]="signUpInfo.username" name="username">
     <br>
 
     <label for="password-input"> Password </label>
     <input  id="password-input" type="password" placeholder="*****"
-        [(ngModel)]="signUpInfo.password" name="signupPassword">
+        [(ngModel)]="signUpInfo.password" name="password">
     <br>
 
     <button> Sign Up </button>
@@ -36,9 +31,9 @@
   </p>
 
   <form (ngSubmit)="doLogin()">
-    <label for="login-email-input"> Email </label>
-    <input  id="login-email-input" type="email" placeholder="hi@example.com"
-        [(ngModel)]="loginInfo.email" name="loginEmail">
+    <label for="login-username-input"> Email </label>
+    <input  id="login-username-input" type="email" placeholder="hi@example.com"
+        [(ngModel)]="loginInfo.username" name="username">
     <br>
 
     <label for="login-pass-input"> Password </label>

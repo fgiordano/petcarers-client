@@ -13,14 +13,13 @@ isLoggedOut: boolean = false;
 
   signUpInfo = {
     username: '',
-    email: '',
     password: ''
   };
 
   errorMessage: string;
 
   loginInfo = {
-    email: '',
+    username: '',
     password: ''
   };
 
@@ -36,7 +35,7 @@ isLoggedOut: boolean = false;
     this.authThang.checklogin()
       // If success, we are logged in.
       .then((resultFromApi) => {
-          this.routerThang.navigate(['/signup']);
+          this.routerThang.navigate(['/user']);
       })
 
       // Even if you don't do anything on error, catch to avoid a console error.
@@ -51,7 +50,7 @@ isLoggedOut: boolean = false;
           // clear form
           this.signUpInfo = {
             username: '',
-            email: '',
+
             password: ''
           };
 
@@ -59,11 +58,11 @@ isLoggedOut: boolean = false;
           this.errorMessage = "";
 
           // redirect to /camels
-          this.routerThang.navigate(['/signup']);
+          this.routerThang.navigate(['/user']);
       })
       .catch((err) => {
-          const parsedError = err.json();
-          this.errorMessage = parsedError.message + ' 😤';
+          const parsedError = err.json;
+          // this.errorMessage = parsedError.message + ' 😤';
       });
   } // close doSignUp()
 
@@ -72,7 +71,7 @@ isLoggedOut: boolean = false;
       .then((resultFromApi) => {
           // clear the form
           this.loginInfo = {
-            email: '',
+            username: '',
             password: ''
           };
 
@@ -80,11 +79,11 @@ isLoggedOut: boolean = false;
           this.loginErrorMessage = "";
 
           // redirect to /camels
-          this.routerThang.navigate(['/signup']);
+          this.routerThang.navigate(['/user']);
       })
       .catch((err) => {
-          const parsedError = err.json();
-          this.loginErrorMessage = parsedError.message + ' 😤';
+          const parsedError = err.json;
+          // this.loginErrorMessage = parsedError.message + ' 😤';
       });
   } // close doLogin()
 

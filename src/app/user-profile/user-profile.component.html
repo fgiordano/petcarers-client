@@ -1,4 +1,11 @@
-<p>
-  user-profile works!
-</p>
+<header>
+  <p> Hello, {{ currentUser.fullName }}. </p>
+
+  <button (click)="logMeOutPls()"> Log Out </button>
+  <p *ngIf="logoutError" class="error">
+    {{ logoutError }}
+  </p>
+</header>
+
+
 <a [routerLink]="['']"> Back to home page </a>

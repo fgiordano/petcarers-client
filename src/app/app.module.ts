@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { SessionService } from './session.service';
-
+import { EditUserService } from './edit-user.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
@@ -26,7 +26,8 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     FormsModule,
     HttpModule
   ],
-  providers: [SessionService],
+  providers: [SessionService,
+              EditUserService],
   bootstrap: [AppComponent]
 })
 

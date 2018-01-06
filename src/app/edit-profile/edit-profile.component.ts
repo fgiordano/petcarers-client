@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SessionService } from '../session.service';
 
 @Component({
   selector: 'app-edit-profile',

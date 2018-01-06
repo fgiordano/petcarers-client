@@ -20,9 +20,8 @@ export class SessionService {
 
           // Form body information to send to the back end (req.body)
           {
-            signupUsername: componentInfo.username,
-            signupEmail: componentInfo.email,
-            signupPassword: componentInfo.password
+            username: componentInfo.username,
+            password: componentInfo.password
           },
 
           // Send the cookies across domains
@@ -44,8 +43,8 @@ export class SessionService {
 
           // Form body information to send to the back end (req.body)
           {
-            blahEmail: componentInfo.email,
-            blahPassword: componentInfo.password
+            username: componentInfo.username,
+            password: componentInfo.password
           },
 
           // Send the cookies across domains
