@@ -48,7 +48,20 @@ export class UserProfileComponent implements OnInit {
       });
   } // close logMeOutPls()
 
-  
+  deleteUser(){
+  	this.editThang.deleteUser()
+  	.then((resultFromApi) => {
+  		//clear error message
+  		this.errorMessage = "",
+
+  		//redirect to 
+  		this.routerThang.navigate(['/']);
+  	})
+  	.catch((err) => {
+  		const parsedError = err.json();
+  		this.errorMessage = parsedError.message + ' ';
+  	});
+  }
 
 
   

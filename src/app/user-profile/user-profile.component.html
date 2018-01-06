@@ -1,5 +1,5 @@
 <header>
-  <p> Hello, {{ currentUser.fullName }}. </p>
+  <p> Hello, {{ currentUser.username }}. </p>
 
   <button (click)="logMeOutPls()"> Log Out </button>
   <p *ngIf="logoutError" class="error">
