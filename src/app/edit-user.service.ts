@@ -33,6 +33,7 @@ export class EditUserService {
       // Parse the JSON
       .then(res => res.json());
     } // close signup()
+    
     deleteUser() {
       return this.http
       .delete(

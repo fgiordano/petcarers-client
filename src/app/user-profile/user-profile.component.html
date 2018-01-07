@@ -7,5 +7,7 @@
   </p>
 </header>
 
+<button *ngIf="!isShowingForm" (click)="showEditForm()">
+  Edit your info </button>
 
 <a [routerLink]="['']"> Back to home page </a>

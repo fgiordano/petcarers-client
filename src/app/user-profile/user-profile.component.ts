@@ -22,6 +22,10 @@ export class UserProfileComponent implements OnInit {
   username: ''
   };
 
+  formData = {
+  	username: '',
+  };
+
   constructor(
     private authThang: SessionService,
     private editThang: EditUserService,
@@ -63,6 +67,26 @@ export class UserProfileComponent implements OnInit {
   		const parsedError = err.json();
   		this.errorMessage = parsedError.message + ' ';
   	});
+  }
+
+  updateUser(){
+  	this.editThang.updateUser(this.formData)
+  	.then((resultFromApi) => {
+  		//clear form
+  		this.formData = {
+  			username: ' '
+  		};
+  		//clear error message
+  		this.errorMessage = "",
+
+  		//redirect to
+  		this.routerThang.navigate(['/'])
+  	})
+  	.catch((err) => {
+  		const parsedError = err.json();
+  		this.errorMessage = parsedError.message + ' ';
+  	});
+
   }
 
   showEditForm() {
