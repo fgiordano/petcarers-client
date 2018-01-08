@@ -10,4 +10,19 @@
 <button *ngIf="!isShowingForm" (click)="showEditForm()">
   Edit your info </button>
 
+  <div *ngIf="isShowingForm">
+  <h3> Add new info </h3>
+
+  <p *ngIf="saveError" class="error">
+    {{ saveError }}
+  </p>
+
+  <form (ngSubmit)="updateUser()">
+    <label for="username-input"> Username </label>
+    <input  id="username-input" type="text" placeholder="New Username"
+        [(ngModel)]="formData.username" name="username">
+    <br>
+
+     <button> update </button>
+
 <a [routerLink]="['']"> Back to home page </a>
