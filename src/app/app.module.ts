@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { PetService } from './pet.service';
 import { SessionService } from './session.service';
 import { EditUserService } from './edit-user.service';
 import { AppRoutingModule } from './app-routing.module';
@@ -27,7 +28,8 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     HttpModule
   ],
   providers: [SessionService,
-              EditUserService],
+              EditUserService,
+              PetService],
   bootstrap: [AppComponent]
 })
 

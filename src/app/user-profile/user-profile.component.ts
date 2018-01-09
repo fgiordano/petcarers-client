@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SessionService } from '../session.service';
-import { environment } from '../../environments/environment';
-import { EditUserService } from '../edit-user.service';
 import { FileUploader } from 'ng2-file-upload';
+
+import { environment } from '../../environments/environment';
+
+import { SessionService } from '../session.service';
+import { EditUserService } from '../edit-user.service';
+import { PetService } from '../pet.service';
+
 
 @Component({
   selector: 'app-user-profile',
@@ -13,6 +17,8 @@ import { FileUploader } from 'ng2-file-upload';
 export class UserProfileComponent implements OnInit {
 
   isShowingForm: boolean = false;
+
+  isShowingAddPetForm: boolean = false;
 
   errorMessage = "";
 
@@ -26,9 +32,27 @@ export class UserProfileComponent implements OnInit {
   	username: '',
   };
 
+  petInfo = {
+  	petName: '',
+  	petAge: ''
+  }
+
+  petArray: any[] = [];
+
+  myCoolUploader = new FileUploader({
+    url: environment.apiBase + '/api/pets',
+    itemAlias: 'petPicture'
+  });
+
+  saveError: string;
+
+  petListError: string;
+
+
   constructor(
     private authThang: SessionService,
     private editThang: EditUserService,
+    private petThang: PetService,
     private routerThang: Router
   ) { }
 
@@ -42,6 +66,7 @@ export class UserProfileComponent implements OnInit {
       .catch(() => {
           this.routerThang.navigate(['/']);
       });
+      this.showPets()
   } // close ngOnInit()
 
   logMeOutPls() {
@@ -96,6 +121,76 @@ export class UserProfileComponent implements OnInit {
   showAddPetForm() {
     this.isShowingAddPetForm = true;
   } // close showEditForm()
+
+  addNewPet() {
+    // if no picture, regular AJAX upload
+    if (this.myCoolUploader.getNotUploadedItems().length === 0) {
+      this.addPetNoPicture();
+    }
+
+    // else, upload pictures with uploader
+    else {
+      this.addPetWithPicture();
+    }
+  } // close addNewPet()
+
+  private addPetNoPicture() {
+    this.petThang.newPet(this.petInfo)
+      .subscribe(
+        (newPetFromApi) => {
+            this.petArray.push(newPetFromApi);
+            this.isShowingAddPetForm = false;
+            this.petInfo = {
+              petName: "",
+              petAge: ""
+            };
+            this.saveError = "";
+        },
+        (err) => {
+            this.saveError = 'Don\'t be a dumb dog';
+        }
+      );
+  } // close addPetNoPicture
+
+  private addPetWithPicture() {
+    this.myCoolUploader.onBuildItemForm = (item, form) => {
+        form.append('cpetName', this.petInfo.petName);
+        form.append('petAge', this.petInfo.petAge);
+    };
+
+    this.myCoolUploader.onSuccessItem = (item, response) => {
+        console.log(item);
+        const newPetFromApi = JSON.parse(response);
+        this.petArray.push(newPetFromApi);
+        this.isShowingAddPetForm = false;
+        this.petInfo = {
+          petName: "",
+          petAge: ""
+        };
+        this.saveError = "";
+    };
+
+    this.myCoolUploader.onErrorItem = (item, response) => {
+        console.log(item, response);
+        this.saveError = 'Don\'t be a dumb dog';
+    };
+
+    // this is the function that initiates the AJAX request
+    this.myCoolUploader.uploadAll();
+  } // close saveCamelWithPicture
+
+  showPets() {
+    this.petThang.allPets()
+      .subscribe(
+        (allThePets) => {
+        	console.log(allThePets,'kjkjhkjhjkhkjhjkhjkhkhkj')
+            this.petArray.push(allThePets);
+        },
+        () => {
+            this.petListError = 'Sorry no pets';
+        }
+      );
+  } // close getThemCamels()
 
 
 

@@ -52,4 +52,16 @@
    </form>
  </div>
 
+<p> {{ currentUser.username }}'s Pets  </p>
+<p> {{ currentUser.pets }}  </p>
+<ul>
+  <li *ngFor="let onePet of petArray">
+    <h3> {{ onePet.petName }} </h3>
+    <h3> {{ onePet.petAge }} </h3>
+  </li>
+</ul>
+
+
+
+
 <a [routerLink]="['']"> Back to home page </a>
