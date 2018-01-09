@@ -24,5 +24,32 @@
     <br>
 
      <button> update </button>
+   </form>
+ </div>
+
+<button *ngIf="!isShowingAddPetForm" (click)="showAddPetForm()">
+  Add a Pet </button>
+
+  <div *ngIf="isShowingAddPetForm">
+  <h3> Add new pet </h3>
+
+  <p *ngIf="saveError" class="error">
+    {{ saveError }}
+  </p>
+
+  <form (ngSubmit)="addNewPet()">
+    <label for="petName-input"> Pet Name </label>
+    <input  id="petName-input" type="text" placeholder="Pet Name"
+        [(ngModel)]="petInfo.petName" name="petName">
+    <br>
+
+    <label for="petAge-input"> Pet Age </label>
+    <input  id="petAge-input" type="text" placeholder="Pet Age"
+        [(ngModel)]="petInfo.petAge" name="petAge">
+    <br>
+
+     <button> Save Pet </button>
+   </form>
+ </div>
 
 <a [routerLink]="['']"> Back to home page </a>
