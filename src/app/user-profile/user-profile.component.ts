@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { SessionService } from '../session.service';
 import { environment } from '../../environments/environment';
 import { EditUserService } from '../edit-user.service';
-// import { FileUploader } from 'ng2-file-upload';
+import { FileUploader } from 'ng2-file-upload';
 
 @Component({
   selector: 'app-user-profile',
@@ -92,6 +92,11 @@ export class UserProfileComponent implements OnInit {
   showEditForm() {
     this.isShowingForm = true;
   } // close showEditForm()
+
+  showAddPetForm() {
+    this.isShowingAddPetForm = true;
+  } // close showEditForm()
+
 
 
   
