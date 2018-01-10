@@ -10,10 +10,10 @@ export class EditUserService {
     private http: Http
   ) { }
 
-  getUser() {
+  getUser(id) {
     return this.http
     .get(
-      `${environment.apiBase}/api/user`,
+      `${environment.apiBase}/api/user/${id}`,
       { withCredentials: true })
       .map( res => res.json());
     }
@@ -33,7 +33,7 @@ export class EditUserService {
       // Parse the JSON
       .then(res => res.json());
     } // close signup()
-    
+
     deleteUser() {
       return this.http
       .delete(

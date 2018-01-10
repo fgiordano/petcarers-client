@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FileUploader } from 'ng2-file-upload';
 
 import { environment } from '../../environments/environment';
@@ -53,21 +53,30 @@ export class UserProfileComponent implements OnInit {
     private authThang: SessionService,
     private editThang: EditUserService,
     private petThang: PetService,
+    private route: ActivatedRoute,
     private routerThang: Router
   ) { }
 
   ngOnInit() {
-  	console.log("ARREGLO ANTES: ", this.petArray);
-    this.authThang.checklogin()
-      .then((userFromApi) => {
-          this.currentUser = userFromApi	
-          })
-          
-          // this.getThemCamels();
-      .catch(() => {
-          this.routerThang.navigate(['/']);
-      });
-      this.showPets()
+  	console.log("holaaaaaaaaa", this.route.params._value.id)
+  	if(this.route.params._value.id === undefined){
+  		console.log("IFFFFF", this.route.params._value.id)
+	    this.authThang.checklogin()
+	      .then((userFromApi) => {
+	          this.currentUser = userFromApi	
+	          })
+	          
+	          // this.getThemCamels();
+	      .catch(() => {
+	          this.routerThang.navigate(['/']);
+	      });
+	      this.showPets()
+	  }
+	  else
+	  {
+	  	console.log("ELSEEEEE", this.route.params._value.id)
+	  	this.showOtherUser(this.route.params._value.id);
+	  }
   } // close ngOnInit()
 
   logMeOutPls() {
@@ -196,6 +205,12 @@ export class UserProfileComponent implements OnInit {
   } // close getThemCamels()
 
 
+  showOtherUser(id) {
+    this.editThang.getUser(id)
+      .subscribe((user) => {
+      	this.currentUser = user;
+      });
+  }
 
   
 }
