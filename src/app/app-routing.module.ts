@@ -15,6 +15,10 @@ const routes: Routes = [
     component: UserProfileComponent
   },
   {
+    path: 'user/:id',
+    component: UserProfileComponent
+  },
+  {
     path: 'signup',
     component: SignUpComponent
   },

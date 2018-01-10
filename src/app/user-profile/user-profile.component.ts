@@ -57,6 +57,7 @@ export class UserProfileComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+  	console.log("ARREGLO ANTES: ", this.petArray);
     this.authThang.checklogin()
       .then((userFromApi) => {
           this.currentUser = userFromApi	
@@ -183,8 +184,10 @@ export class UserProfileComponent implements OnInit {
     this.petThang.allPets()
       .subscribe(
         (allThePets) => {
-        	console.log(allThePets,'kjkjhkjhjkhkjhjkhjkhkhkj')
-            this.petArray.push(allThePets);
+        	allThePets.forEach((pet)=>{
+            	this.petArray.push(pet);
+        	})
+        	console.log("pets =", this.petArray);
         },
         () => {
             this.petListError = 'Sorry no pets';
