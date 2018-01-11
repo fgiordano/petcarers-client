@@ -11,6 +11,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { OtherUserProfileComponent } from './other-user-profile/other-user-profile.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     SignUpComponent,
     HomePageComponent,
     UserProfileComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    OtherUserProfileComponent
   ],
   imports: [
     BrowserModule,

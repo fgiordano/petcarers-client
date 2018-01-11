@@ -40,6 +40,19 @@ export class PetService {
 
         // Parse the JSON
         .map(res => res.json());
-  } // close allCamels()
+  } // close allPets()
+
+  otherUserPets(id) {
+      return this.httpThang
+        .get(
+          `${environment.apiBase}/api/pets/${id}`,
+
+          // Send the cookies across domains
+          { withCredentials: true }
+        )
+
+        // Parse the JSON
+        .map(res => res.json());
+  } // close allPets()
 
 }

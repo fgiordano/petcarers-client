@@ -58,9 +58,7 @@ export class UserProfileComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-  	console.log("holaaaaaaaaa", this.route.params._value.id)
-  	if(this.route.params._value.id === undefined){
-  		console.log("IFFFFF", this.route.params._value.id)
+  	// if(this.route.params._value.id === undefined){
 	    this.authThang.checklogin()
 	      .then((userFromApi) => {
 	          this.currentUser = userFromApi	
@@ -71,12 +69,12 @@ export class UserProfileComponent implements OnInit {
 	          this.routerThang.navigate(['/']);
 	      });
 	      this.showPets()
-	  }
-	  else
-	  {
-	  	console.log("ELSEEEEE", this.route.params._value.id)
-	  	this.showOtherUser(this.route.params._value.id);
-	  }
+	  // }
+	  // else
+	  // {
+	  	// console.log("ELSEEEEE", this.route.params._value.id)
+	  	// this.showOtherUser(this.route.params._value.id);
+	  // }
   } // close ngOnInit()
 
   logMeOutPls() {
@@ -85,7 +83,7 @@ export class UserProfileComponent implements OnInit {
           this.routerThang.navigate(['/']);
       })
       .catch(() => {
-          this.logoutError = 'Log out went to 💩';
+          this.logoutError = 'Log out went wrong';
       });
   } // close logMeOutPls()
 
@@ -157,7 +155,7 @@ export class UserProfileComponent implements OnInit {
             this.saveError = "";
         },
         (err) => {
-            this.saveError = 'Don\'t be a dumb dog';
+            this.saveError = 'Don\'t be a silly dog';
         }
       );
   } // close addPetNoPicture
@@ -182,7 +180,7 @@ export class UserProfileComponent implements OnInit {
 
     this.myCoolUploader.onErrorItem = (item, response) => {
         console.log(item, response);
-        this.saveError = 'Don\'t be a dumb dog';
+        this.saveError = 'Don\'t be a silly dog';
     };
 
     // this is the function that initiates the AJAX request
@@ -205,12 +203,12 @@ export class UserProfileComponent implements OnInit {
   } // close getThemCamels()
 
 
-  showOtherUser(id) {
-    this.editThang.getUser(id)
-      .subscribe((user) => {
-      	this.currentUser = user;
-      });
-  }
+  // showOtherUser(id) {
+  //   this.editThang.getUser(id)
+  //     .subscribe((user) => {
+  //     	this.currentUser = user;
+  //     });
+  // }
 
   
 }

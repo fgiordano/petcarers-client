@@ -1,0 +1,12 @@
+  
+ <p> Hello, {{ currentUser.username }}. </p>
+  <p> You are viewing {{ otherUser.username }}'s profile. </p>
+
+  <p> {{ otherUser.username }}'s Pets  </p>
+<p> {{ otherUser.pets }}  </p>
+<ul>
+  <li *ngFor="let onePet of petArray">
+    <h3> {{ onePet.name }} </h3>
+    <h3> {{ onePet.age }} </h3>
+  </li>
+</ul>
