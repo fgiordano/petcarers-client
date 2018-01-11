@@ -16,6 +16,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OtherUserProfileComponent implements OnInit {
 
+isShowingReviewForm: boolean = false;
+
 otherUser = {
   username: ''
   };
@@ -47,18 +49,13 @@ petArray: any[] = [];
 	      .subscribe((userFromApi) => {
 	          this.otherUser = userFromApi	
 	          })
-	          
-	          // this.getThemCamels();
-	      // .catch(() => {
-	      //     this.routerThang.navigate(['/']);
-	      //});
-	      this.showPets(id);
-	      this.authThang.checklogin()
+
+	    this.showPets(id);
+
+	    this.authThang.checklogin()
 	      .then((userFromApi) => {
 	          this.currentUser = userFromApi	
-	          })
-	          
-	          // this.getThemCamels();
+	          })     
 	      .catch(() => {
 	          this.routerThang.navigate(['/']);
 	      });
@@ -77,6 +74,10 @@ petArray: any[] = [];
             this.petListError = 'Sorry no pets';
         }
       );
+  }
+
+  showReviewForm() {
+    this.isShowingReviewForm = true;
   }
 
   //  showCurrentUser(id) {
