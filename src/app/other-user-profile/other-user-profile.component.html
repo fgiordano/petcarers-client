@@ -10,3 +10,25 @@
     <h3> {{ onePet.age }} </h3>
   </li>
 </ul>
+
+ <p> If you have received {{ otherUser.username }}'s services, please review your experience. </p>
+
+<button *ngIf="!isShowingReviewForm" (click)="showReviewForm()">
+  Leave a Review </button>
+
+  <div *ngIf="isShowingReviewForm">
+  <h3> Leave a review </h3>
+
+  <p *ngIf="saveError" class="error">
+    {{ saveError }}
+  </p>
+
+  <form (ngSubmit)="addNewReview()">
+    <label for="review-input"></label>
+    <input  id="review-input" type="text" placeholder="Your comments here"
+        [(ngModel)]="reviewData.content" name="content">
+    <br>
+
+     <button> Post your Review </button>
+   </form>
+ </div>
