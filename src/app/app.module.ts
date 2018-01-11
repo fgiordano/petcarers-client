@@ -2,10 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { AppRoutingModule } from './app-routing.module';
+
 import { PetService } from './pet.service';
 import { SessionService } from './session.service';
 import { EditUserService } from './edit-user.service';
-import { AppRoutingModule } from './app-routing.module';
+import { ReviewService } from './review.service';
+
 import { AppComponent } from './app.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -31,7 +34,8 @@ import { OtherUserProfileComponent } from './other-user-profile/other-user-profi
   ],
   providers: [SessionService,
               EditUserService,
-              PetService],
+              PetService,
+              ReviewService],
   bootstrap: [AppComponent]
 })
 

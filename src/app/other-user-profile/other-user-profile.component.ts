@@ -6,6 +6,7 @@ import { environment } from '../../environments/environment';
 import { SessionService } from '../session.service';
 import { EditUserService } from '../edit-user.service';
 import { PetService } from '../pet.service';
+import { ReviewService } from '../review.service';
 
 import { Component, OnInit } from '@angular/core';
 
@@ -18,6 +19,8 @@ export class OtherUserProfileComponent implements OnInit {
 
 isShowingReviewForm: boolean = false;
 
+errorMessage = "";
+
 otherUser = {
   username: ''
   };
@@ -26,14 +29,25 @@ currentUser = {
   username: ''
   };
 
+reviewData = {
+  	content: ''
+  }
+
 petArray: any[] = [];
 
+reviewArray: any[] = [];
+
+saveError: string;
+
   constructor(
+
+    private route: ActivatedRoute,
+    private routerThang: Router,
     private authThang: SessionService,
     private editThang: EditUserService,
     private petThang: PetService,
-    private route: ActivatedRoute,
-    private routerThang: Router
+    private reviewThang: ReviewService
+
   	) { }
 
   ngOnInit(){
@@ -79,6 +93,23 @@ petArray: any[] = [];
   showReviewForm() {
     this.isShowingReviewForm = true;
   }
+
+  private addNewReview() {
+    this.reviewThang.newReview(this.reviewData)
+      .subscribe(
+        (newReviewFromApi) => {
+            this.reviewArray.push(newReviewFromApi);
+            this.isShowingReviewForm = false;
+            this.reviewData = {
+              content: ""
+            };
+            this.saveError = "";
+        },
+        (err) => {
+            this.saveError = 'Error posting review';
+        }
+      );
+  } // close addNewReview
 
   //  showCurrentUser(id) {
   //   this.editThang.getUser(id)

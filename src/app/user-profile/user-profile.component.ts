@@ -124,11 +124,11 @@ export class UserProfileComponent implements OnInit {
 
   showEditForm() {
     this.isShowingForm = true;
-  } // close showEditForm()
+  }
 
   showAddPetForm() {
     this.isShowingAddPetForm = true;
-  } // close showEditForm()
+  }
 
   addNewPet() {
     // if no picture, regular AJAX upload

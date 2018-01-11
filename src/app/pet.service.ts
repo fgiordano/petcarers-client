@@ -9,8 +9,8 @@ export class PetService {
   constructor(
 
     private httpThang: Http
-  ) { }
 
+  ) { }
 
   newPet(componentInfo) {
       return this.httpThang
@@ -53,6 +53,6 @@ export class PetService {
 
         // Parse the JSON
         .map(res => res.json());
-  } // close allPets()
+  } // close otherUserPets()
 
 }
