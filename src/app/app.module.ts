@@ -15,6 +15,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { OtherUserProfileComponent } from './other-user-profile/other-user-profile.component';
+import { EditPetComponent } from './edit-pet/edit-pet.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { OtherUserProfileComponent } from './other-user-profile/other-user-profi
     HomePageComponent,
     UserProfileComponent,
     EditProfileComponent,
-    OtherUserProfileComponent
+    OtherUserProfileComponent,
+    EditPetComponent
   ],
   imports: [
     BrowserModule,
