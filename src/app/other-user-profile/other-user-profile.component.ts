@@ -21,23 +21,21 @@ isShowingReviewForm: boolean = false;
 
 errorMessage = "";
 
-otherUser = {
-  username: ''
+otherUser:any = {
   };
 
-currentUser = {
-  username: ''
+currentUser:any = {
   };
 
-reviewData = {
-  	content: ''
-  }
+reviewData:any = {};
 
 petArray: any[] = [];
 
 reviewArray: any[] = [];
 
 saveError: string;
+
+petListError: string;
 
   constructor(
 
@@ -51,7 +49,7 @@ saveError: string;
   	) { }
 
   ngOnInit(){
-  	console.log("this is the params", this.route.params._value['id'])
+  	//console.log("this is the params", this.route.params._value['id'])
   	this.route.params.subscribe((params) =>{ 
   		this.showOtherUser(params['id'])
   	});
@@ -93,8 +91,9 @@ saveError: string;
   showReviewForm() {
     this.isShowingReviewForm = true;
   }
-
-  private addNewReview() {
+ 
+  addNewReview() {
+    this.reviewData.aboutCarer = this.otherUser._id;
     this.reviewThang.newReview(this.reviewData)
       .subscribe(
         (newReviewFromApi) => {

@@ -11,7 +11,7 @@ export class EditUserService {
     private http: Http
   ) { }
 
-  getUser(id) {
+    getUser(id) {
     return this.http
     .get(
       `${environment.apiBase}/api/user/${id}`,
@@ -33,7 +33,7 @@ export class EditUserService {
       .toPromise()
       // Parse the JSON
       .then(res => res.json());
-    } // close signup()
+    } // close update()
 
     deleteUser() {
       return this.http
@@ -46,6 +46,6 @@ export class EditUserService {
       .toPromise()
       // Parse the JSON
       .then(res => res.json());
-    } // close signup()
+    } // close deleteUser()
 
   }

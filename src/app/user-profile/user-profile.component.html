@@ -64,13 +64,38 @@
 
 <p> {{ currentUser.username }}'s Pets  </p>
 <p> {{ currentUser.pets }}  </p>
+
+<!--start list of pets-->
+
 <ul>
   <li *ngFor="let onePet of petArray">
     <h3> {{ onePet.name }} </h3>
     <h3> {{ onePet.age }} </h3>
-  </li>
+    <button *ngIf="!isShowingEditPetForm" (click)="showEditPetForm()"> Edit </button>
+
+    <div *ngIf="isShowingEditPetForm">
+    <h3> Edit this pet's information </h3>
+
+    <p *ngIf="saveError" class="error"> {{ saveError }} </p>
+
+    <form (ngSubmit)="updatePet()">
+    <label for="petName-input"> Pet Name </label>
+    <input  id="petName-input" type="text" placeholder="Pet Name"
+        [(ngModel)]="petInfo.petName" name="petName">
+    <br>
+
+    <label for="petAge-input"> Pet Age </label>
+    <input  id="petAge-input" type="text" placeholder="Pet Age"
+        [(ngModel)]="petInfo.petAge" name="petAge">
+    <br>
+
+     <button> update </button>
+   </form>
+  </div>
+ </li>
 </ul>
 
+<!--end list of pets-->
 
 
 

@@ -20,6 +20,8 @@ export class UserProfileComponent implements OnInit {
 
   isShowingAddPetForm: boolean = false;
 
+  isShowingEditPetForm: boolean = false;
+
   errorMessage = "";
 
   logoutError = "";
@@ -32,10 +34,7 @@ export class UserProfileComponent implements OnInit {
   	username: '',
   };
 
-  petInfo = {
-  	petName: '',
-  	petAge: ''
-  }
+  petInfo:any = {};
 
   petArray: any[] = [];
 
@@ -130,6 +129,10 @@ export class UserProfileComponent implements OnInit {
     this.isShowingAddPetForm = true;
   }
 
+  showEditPetForm() {
+    this.isShowingEditPetForm = true;
+  }
+
   addNewPet() {
     // if no picture, regular AJAX upload
     if (this.myCoolUploader.getNotUploadedItems().length === 0) {
@@ -185,7 +188,7 @@ export class UserProfileComponent implements OnInit {
 
     // this is the function that initiates the AJAX request
     this.myCoolUploader.uploadAll();
-  } // close saveCamelWithPicture
+  } // close addPetlWithPicture
 
   showPets() {
     this.petThang.allPets()
@@ -200,7 +203,29 @@ export class UserProfileComponent implements OnInit {
             this.petListError = 'Sorry no pets';
         }
       );
-  } // close getThemCamels()
+  } // close showPets()
+
+  updatePet(){
+    console.log("this is the pet info:", this.petInfo)
+    this.petThang.updatePet(this.petInfo, this.petInfo[0]);
+    .then((resultFromApi) => {
+      //clear form
+      this.petInfo = {
+        petName: ' ',
+        petAge: ' '
+      };
+      //clear error message
+      this.errorMessage = "",
+
+      //redirect to
+      this.routerThang.navigate(['/api/user/'])
+    })
+    .catch((err) => {
+      const parsedError = err.json();
+      this.errorMessage = parsedError.message + ' ';
+    });
+
+  } // close updatePet
 
 
   // showOtherUser(id) {

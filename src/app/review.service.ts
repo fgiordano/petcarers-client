@@ -15,11 +15,10 @@ export class ReviewService {
   newReview(componentInfo) {
       return this.httpThang
         .post(
-          `${environment.apiBase}/api/reviews/${id}`,
+          `${environment.apiBase}/api/reviews`,
 
           // Form body information to send to the back end (req.body)
           componentInfo,
-
           // Send the cookies across domains
           { withCredentials: true }
         )

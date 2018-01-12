@@ -26,7 +26,7 @@ export class PetService {
 
         // Parse the JSON
         .map(res => res.json());
-  } // close newCamel()
+  } // close newPet()
 
 
   allPets() {
@@ -54,5 +54,36 @@ export class PetService {
         // Parse the JSON
         .map(res => res.json());
   } // close otherUserPets()
+
+  updatePet(componentInfo, id) {
+    console.log("component info it this:", componentInfo)
+      return this.httpThang
+      .put(
+        `${environment.apiBase}/api/pets/${id}`,
+        {
+          petName: componentInfo.petName,
+          petAge: componentInfo.petAge
+        },
+        // Send the cookies across domains
+        { withCredentials: true }
+      )
+      // Convert from observable to promise
+      .toPromise()
+      // Parse the JSON
+      .then(res => res.json());
+  } // close updatePet()
+
+  deletePet() {
+      return this.httpThang
+      .delete(
+        `${environment.apiBase}/api/pets/${id}`,
+        // Send the cookies across domains
+        { withCredentials: true }
+      )
+      // Convert from observable to promise
+      .toPromise()
+      // Parse the JSON
+      .then(res => res.json());
+  } // close deletePet()
 
 }
