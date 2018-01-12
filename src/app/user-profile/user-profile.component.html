@@ -1,31 +1,32 @@
 <header>
+
   <p> Hello, {{ currentUser.username }}. </p>
 
   <button (click)="logMeOutPls()"> Log Out </button>
-  <p *ngIf="logoutError" class="error">
-    {{ logoutError }}
-  </p>
+
+  <p *ngIf="logoutError" class="error"> {{ logoutError }} </p>
+
 </header>
 
-<button *ngIf="!isShowingForm" (click)="showEditForm()">
-  Edit your info </button>
+<button *ngIf="!isShowingForm" (click)="showEditForm()"> Edit your info </button>
 
   <div *ngIf="isShowingForm">
-  <h3> Add new info </h3>
 
-  <p *ngIf="saveError" class="error">
-    {{ saveError }}
-  </p>
+    <h3> Add new info </h3>
 
-  <form (ngSubmit)="updateUser()">
+    <p *ngIf="saveError" class="error"> {{ saveError }} </p>
+
+    <form (ngSubmit)="updateUser()">
     <label for="username-input"> Username </label>
     <input  id="username-input" type="text" placeholder="New Username"
         [(ngModel)]="formData.username" name="username">
     <br>
 
      <button> update </button>
+
    </form>
- </div>
+
+</div>
 
  <!--  <b *ngIf="currentUser._id === currentUser._id">
 
@@ -88,6 +89,8 @@
     <input  id="petAge-input" type="text" placeholder="Pet Age"
         [(ngModel)]="petInfo.petAge" name="petAge">
     <br>
+
+    <a [routerLink]="['edit_pet', petInfo._id]"> Edit this pet </a>
 
      <button> update </button>
    </form>
