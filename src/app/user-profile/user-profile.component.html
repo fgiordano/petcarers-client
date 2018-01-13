@@ -1,4 +1,59 @@
+<nav class="navbar navbar-placeholder"></nav>
 
+   <section id="faculity-member" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="pm-staff-profile-container">
+            <div class="pm-staff-profile-image-wrapper text-center">
+              <div class="pm-staff-profile-image">
+                <img src="img/mentor.jpg" alt="" class="img-thumbnail img-circle" />
+              </div>
+            </div>
+            <div class="pm-staff-profile-details text-center">
+              <p class="pm-staff-profile-name">{{ currentUser.username }}</p>
+              <p class="pm-staff-profile-title">Pet-Carer</p>
+
+              <p class="pm-staff-profile-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et placerat dui. In posuere metus et elit placerat tristique. Maecenas eu est in sem ullamcorper tincidunt. </p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-lg-8 col-md-8 col-sm-8">
+          <!-- <div class="container"> -->
+            <div class="row">
+              <div class="header-section text-center">               
+                    <p class="pm-staff-profile-name"> Your Pets</p> 
+                </div>
+            </div>
+             <!-- <div class="container"> -->
+             <!--  <div class="row"> -->
+              <!-- <ul> -->
+              <div *ngFor="let onePet of petArray">
+                <div class="row anyClass">
+
+                  <div class="col-sm-3 col-sm-offset-2">
+                    <div class="pm-pet-profile-image">
+                    <img src="img/mentor.jpg" alt="" class="img-thumbnail img-circle" />
+                    </div>
+                  </div>
+
+                <div class="col-sm-7">
+                  <p> {{ onePet.name }} </p>
+                  <p> {{ onePet.age }} </p>
+                </div> 
+                </div>
+               </div>
+               <!-- </ul> -->
+              
+        </div>
+            <!-- </div>                           -->
+          <!--  </div> -->
+        </div>
+
+      </div>
+  </section> 
 
 
 
