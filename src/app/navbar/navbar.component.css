@@ -41,7 +41,7 @@
 }
 .navbar-default .navbar-brand {
     font-family: 'Pacifico', sans-serif !important;
-    font-weight: 700;
+/*    font-weight: 700;*/
 /*    text-transform: uppercase;*/
     padding: 0px;
     height: inherit;
