@@ -1,3 +1,16 @@
-<p>
-  edit-pet works!
-</p>
+<h3> Edit this pet's information </h3>
+
+    <p *ngIf="saveError" class="error"> {{ saveError }} </p>
+
+    <form (ngSubmit)="updatePet()">
+    <label for="petName-input"> Pet Name </label>
+    <input  id="petName-input" type="text" placeholder="Pet Name"
+        [(ngModel)]="petInfo.petName" name="petName">
+    <br>
+
+    <label for="petAge-input"> Pet Age </label>
+    <input  id="petAge-input" type="text" placeholder="Pet Age"
+        [(ngModel)]="petInfo.petAge" name="petAge">
+    <br>
+
+     <button> update </button>

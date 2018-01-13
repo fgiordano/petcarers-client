@@ -72,6 +72,9 @@
   <li *ngFor="let onePet of petArray">
     <h3> {{ onePet.name }} </h3>
     <h3> {{ onePet.age }} </h3>
+
+    <a [routerLink]="['/editpet', onePet._id]"> Edit this pet </a>
+
     <button *ngIf="!isShowingEditPetForm" (click)="showEditPetForm()"> Edit </button>
 
     <div *ngIf="isShowingEditPetForm">
@@ -90,8 +93,6 @@
         [(ngModel)]="petInfo.petAge" name="petAge">
     <br>
 
-    <a [routerLink]="['edit_pet', petInfo._id]"> Edit this pet </a>
-
      <button> update </button>
    </form>
   </div>
@@ -99,7 +100,5 @@
 </ul>
 
 <!--end list of pets-->
-
-
 
 <a [routerLink]="['']"> Back to home page </a>

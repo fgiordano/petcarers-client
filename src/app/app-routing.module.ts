@@ -5,6 +5,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { OtherUserProfileComponent } from './other-user-profile/other-user-profile.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { EditPetComponent } from './edit-pet/edit-pet.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'user/:id',
     component: OtherUserProfileComponent
+  },
+  {
+    path: 'editpet/:id',
+    component: EditPetComponent
   },
   {
     path: 'signup',

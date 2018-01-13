@@ -1,9 +1,75 @@
-  
- <p> Hello, {{ currentUser.username }}. </p>
-  <p> You are viewing {{ otherUser.username }}'s profile. </p>
+ <nav class="navbar navbar-placeholder">
 
-  <p> {{ otherUser.username }}'s Pets  </p>
-<p> {{ otherUser.pets }}  </p>
+  </nav>
+
+
+
+   <section id="faculity-member" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="header-section text-center">
+<!--           <h2>Meet Our Faculty Member</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem nesciunt vitae,<br> maiores, magni dolorum aliquam.</p> -->
+          <hr class="bottom-line">
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="pm-staff-profile-container">
+            <div class="pm-staff-profile-image-wrapper text-center">
+              <div class="pm-staff-profile-image">
+                <img src="img/mentor.jpg" alt="" class="img-thumbnail img-circle" />
+              </div>
+            </div>
+            <div class="pm-staff-profile-details text-center">
+              <p class="pm-staff-profile-name">{{ otherUser.username }}</p>
+              <p class="pm-staff-profile-title">Pet-Carer</p>
+
+              <p class="pm-staff-profile-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et placerat dui. In posuere metus et elit placerat tristique. Maecenas eu est in sem ullamcorper tincidunt. </p>
+            </div>
+          </div>
+        </div>
+<!--         <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="pm-staff-profile-container">
+            <div class="pm-staff-profile-image-wrapper text-center">
+              <div class="pm-staff-profile-image">
+                <img src="img/mentor.jpg" alt="" class="img-thumbnail img-circle" />
+              </div>
+            </div>
+            <div class="pm-staff-profile-details text-center">
+              <p class="pm-staff-profile-name">Bryan Johnson</p>
+              <p class="pm-staff-profile-title">Lead Software Engineer</p>
+
+              <p class="pm-staff-profile-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et placerat dui. In posuere metus et elit placerat tristique. Maecenas eu est in sem ullamcorper tincidunt. </p>
+            </div>
+          </div>
+        </div> -->
+<!--         <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="pm-staff-profile-container">
+            <div class="pm-staff-profile-image-wrapper text-center">
+              <div class="pm-staff-profile-image">
+                <img src="img/mentor.jpg" alt="" class="img-thumbnail img-circle" />
+              </div>
+            </div>
+            <div class="pm-staff-profile-details text-center">
+              <p class="pm-staff-profile-name">Bryan Johnson</p>
+              <p class="pm-staff-profile-title">Lead Software Engineer</p>
+
+              <p class="pm-staff-profile-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et placerat dui. In posuere metus et elit placerat tristique. Maecenas eu est in sem ullamcorper tincidunt. </p>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </section>
+
+
+ <p> Hello, {{ currentUser.username }}. </p>
+
+ <p> You are viewing {{ otherUser.username }}'s profile. </p>
+
+ <p> {{ otherUser.username }}'s Pets  </p>
+
+<!-- <p> {{ otherUser.pets }}  </p> -->
+
 <ul>
   <li *ngFor="let onePet of petArray">
     <h3> {{ onePet.name }} </h3>
@@ -11,24 +77,30 @@
   </li>
 </ul>
 
- <p> If you have received {{ otherUser.username }}'s services, please review your experience. </p>
+<p> What pet owners think of {{ otherUser.username }}</p>
 
-<button *ngIf="!isShowingReviewForm" (click)="showReviewForm()">
-  Leave a Review </button>
+<ul>
+  <li *ngFor="let oneReview of reviewArray">
+    <h3> {{ oneReview.content }} </h3>
+  </li>
+</ul>
+
+<p> If you have received {{ otherUser.username }}'s services, please review your experience. </p>
+
+<button *ngIf="!isShowingReviewForm" (click)="showReviewForm()"> Leave a Review </button>
 
   <div *ngIf="isShowingReviewForm">
+
   <h3> Leave a review </h3>
 
-  <p *ngIf="saveError" class="error">
-    {{ saveError }}
-  </p>
+  <p *ngIf="saveError" class="error"> {{ saveError }} </p>
 
-  <form (ngSubmit)="addNewReview()">
-    <label for="review-input"></label>
-    <input  id="review-input" type="text" placeholder="Your comments here"
+   <form (ngSubmit)="addNewReview()">
+     <label for="review-input"></label>
+     <input  id="review-input" type="text" placeholder="Your comments here"
         [(ngModel)]="reviewData.content" name="content">
-    <br>
+     <br>
 
      <button> Post your Review </button>
    </form>
- </div>
+  </div>
