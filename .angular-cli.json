@@ -18,15 +18,6 @@
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
-      "styles": [
-        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
-        "styles.css",
-        "font-awesome.min.css",
-        "bootstrap.min.css",
-        "imagehover.min.css",
-        "style.css"
-
-      ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {

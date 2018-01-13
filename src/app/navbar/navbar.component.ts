@@ -40,6 +40,4 @@ export class NavbarComponent implements OnInit {
 	      });
 
   } // close ngOnInit()
-  }
-
 }

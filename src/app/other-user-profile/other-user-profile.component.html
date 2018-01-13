@@ -26,32 +26,33 @@
 		        	<div class="header-section text-center">               
 		                <p class="pm-staff-profile-name">{{ otherUser.username }}'s Pets</p> 
 		            </div>
-		        <!-- </div> -->
+		        </div>
              <!-- <div class="container"> -->
              <!--  <div class="row"> -->
               <!-- <ul> -->
               <div *ngFor="let onePet of petArray">
+              	<div class="row anyClass">
 
-              	<div class="col-3">
-              	  <div class="pm-pet-profile-image">
-                  <img src="img/mentor.jpg" alt="" class="img-thumbnail img-circle" />
-                  </div>
-                </div>
+	              	<div class="col-sm-3 col-sm-offset-2">
+	              	  <div class="pm-pet-profile-image">
+	                  <img src="img/mentor.jpg" alt="" class="img-thumbnail img-circle" />
+	                  </div>
+	                </div>
 
-                <div class="col-8">
-                <p> {{ onePet.name }} </p>
-                <p> {{ onePet.age }} </p>
+                <div class="col-sm-7">
+	                <p> {{ onePet.name }} </p>
+	                <p> {{ onePet.age }} </p>
                 </div> 
+                </div>
                </div>
                <!-- </ul> -->
               
-              </div>
+        </div>
             <!-- </div>                           -->
           <!--  </div> -->
         </div>
 
       </div>
-    </div>
   </section> 
 
 

@@ -207,7 +207,7 @@ export class UserProfileComponent implements OnInit {
 
   updatePet(){
     console.log("this is the pet info:", this.petInfo)
-    this.petThang.updatePet(this.petInfo, this.petInfo[0]);
+    this.petThang.updatePet(this.petInfo, this.petInfo[0])
     .then((resultFromApi) => {
       //clear form
       this.petInfo = {

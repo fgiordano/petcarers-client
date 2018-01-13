@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-pet.component.css']
 })
 export class EditPetComponent implements OnInit {
+	petInfo:any = {};
+	saveError: string;
+
+
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  updatePet(){
+  	console.log("Im not a real method");
   }
 
 }

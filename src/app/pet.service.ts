@@ -73,7 +73,7 @@ export class PetService {
       .then(res => res.json());
   } // close updatePet()
 
-  deletePet() {
+  deletePet(id) {
       return this.httpThang
       .delete(
         `${environment.apiBase}/api/pets/${id}`,
