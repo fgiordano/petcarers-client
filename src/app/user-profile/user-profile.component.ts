@@ -112,7 +112,7 @@ export class UserProfileComponent implements OnInit {
   		this.errorMessage = "",
 
   		//redirect to
-  		this.routerThang.navigate(['/'])
+  		this.routerThang.navigate(['/user'])
   	})
   	.catch((err) => {
   		const parsedError = err.json();
