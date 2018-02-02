@@ -21,6 +21,8 @@ export class SessionService {
           // Form body information to send to the back end (req.body)
           {
             username: componentInfo.username,
+            email: componentInfo.email,
+            aboutme: componentInfo.aboutme,
             password: componentInfo.password
           },
 

@@ -8,112 +8,17 @@
           <div class="pm-staff-profile-container">
             <div class="pm-staff-profile-image-wrapper text-center">
               <div class="pm-staff-profile-image">
-                <img src="img/mentor.jpg" alt="" class="img-thumbnail img-circle" />
+                <img src="{{ currentUser.image }}" alt="" class="img-thumbnail img-circle" />
               </div>
             </div>
             <div class="pm-staff-profile-details text-center">
               <p class="pm-staff-profile-name">{{ currentUser.username }}</p>
-              <p class="pm-staff-profile-title">Pet-Carer</p>
+              <p class="pm-staff-profile-title">{{ currentUser.email }}</p>
 
-              <p class="pm-staff-profile-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et placerat dui. In posuere metus et elit placerat tristique. Maecenas eu est in sem ullamcorper tincidunt. </p>
+              <p class="pm-staff-profile-bio">{{ currentUser.aboutme }}</p>
             </div>
           </div>
 
-          <button *ngIf="!isShowingForm" (click)="showEditForm()"> Edit your info </button>
-
-            <div *ngIf="isShowingForm">
-
-              <div class="modal-content modal-dialog">
-            <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title text-center form-title">Edit your info</h4>
-        </div>
-        <div class="modal-body padtrbl">
-
-          <div class="signup-box-body">
-<!--             <p class="signup-box-msg">Enter your info to get started</p> -->
-            <div class="form-group">
-              <form name="" id="signupForm">
-                <div class="form-group has-feedback">
-                  <!--- username -->
-                  <input [(ngModel)]="formData.username" name="username" class="form-control" placeholder="Username" id="signupid" type="text" autocomplete="off" />
-                  <span style="display:none;font-weight:bold; position:absolute;color: red;position: absolute;padding:4px;font-size: 11px;background-color:rgba(128, 128, 128, 0.26);z-index: 17;  right: 27px; top: 5px;" id="span_signupid"></span>
-                  <!---Alredy exists  ! -->
-                  <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                </div>
-
-                <div class="row">
-<!--                   <div class="col-xs-12">
-                    <div class="checkbox icheck">
-                      <label>
-                                <input type="checkbox" id="loginrem" > Remember Me
-                              </label>
-                    </div>
-                  </div> -->
-                  <div class="col-xs-12">
-                    <button type="button" class="btn btn-green btn-block btn-flat" onclick="updateUser()">Update</button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-
-            </div><!--  close is showing form -->
-
-                <button *ngIf="!isShowingAddPetForm" (click)="showAddPetForm()"> Add a Pet </button>
-
-            <div *ngIf="isShowingAddPetForm">
-
-              <div class="modal-content modal-dialog">
-            <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title text-center form-title"> Add a Pet</h4>
-        </div>
-        <div class="modal-body padtrbl">
-
-          <div class="signup-box-body">
-<!--             <p class="signup-box-msg">Enter your info to get started</p> -->
-            <div class="form-group">
-              <form name="" id="signupForm">
-                <div class="form-group has-feedback">
-                  <!--- username -->
-                  <input [(ngModel)]="petInfo.petName" name="petName" class="form-control" placeholder="Pet Name" id="signupid" type="text" autocomplete="off" />
-                  <span style="display:none;font-weight:bold; position:absolute;color: red;position: absolute;padding:4px;font-size: 11px;background-color:rgba(128, 128, 128, 0.26);z-index: 17;  right: 27px; top: 5px;" id="span_signupid"></span>
-                  <!---Alredy exists  ! -->
-                  <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback">
-                  <input [(ngModel)]="petInfo.petAge" name="petAge" class="form-control" placeholder="Pet Age" id="signupid" type="text" autocomplete="off" />
-                  <span style="display:none;font-weight:bold; position:absolute;color: red;position: absolute;padding:4px;font-size: 11px;background-color:rgba(128, 128, 128, 0.26);z-index: 17;  right: 27px; top: 5px;" id="span_signupid"></span>
-                  <!---Alredy exists  ! -->
-                  <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                </div>
-
-                <div class="row">
-<!--                   <div class="col-xs-12">
-                    <div class="checkbox icheck">
-                      <label>
-                                <input type="checkbox" id="loginrem" > Remember Me
-                              </label>
-                    </div>
-                  </div> -->
-                  <div class="col-xs-12">
-                    <button type="button" class="btn btn-green btn-block btn-flat" onclick="addNewPet()">Update</button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-
-            </div><!--  close is showing add pet form -->
-
-              <button (click)="logMeOutPls()"> Log Out </button>
-
-              <p *ngIf="logoutError" class="error"> {{ logoutError }} </p>
 
 
         </div><!-- close 4 col div -->
@@ -134,13 +39,14 @@
 
                   <div class="col-sm-3 col-sm-offset-2">
                     <div class="pm-pet-profile-image">
-                    <img src="img/mentor.jpg" alt="" class="img-thumbnail img-circle" />
+                    <img src="{{ onePet.image }}" alt="" class="img-thumbnail img-circle" />
                     </div>
                   </div>
 
                 <div class="col-sm-7">
                   <p> {{ onePet.name }} </p>
                   <p> {{ onePet.age }} </p>
+       <!--            <p> {{ onePet.about }} </p> -->
                 </div> 
                 </div>
                </div>
@@ -158,15 +64,15 @@
 
 <!-- <header>
 
-  <p> Hello, {{ currentUser.username }}. </p>
+  <p> Hello, {{ currentUser.username }}. </p> -->
 
   <button (click)="logMeOutPls()"> Log Out </button>
 
-  <p *ngIf="logoutError" class="error"> {{ logoutError }} </p>
+<!--   <p *ngIf="logoutError" class="error"> {{ logoutError }} </p>
 
-</header> -->
-
-<button *ngIf="!isShowingForm" (click)="showEditForm()"> Edit your info </button>
+</header>
+ -->
+<!-- <button *ngIf="!isShowingForm" (click)="showEditForm()"> Edit your info </button>
 
   <div *ngIf="isShowingForm">
 
@@ -184,7 +90,7 @@
 
    </form>
 
-</div>
+</div> -->
 
  <!--  <b *ngIf="currentUser._id === currentUser._id">
 
@@ -217,46 +123,17 @@
         [(ngModel)]="petInfo.petAge" name="petAge">
     <br>
 
+<!--     <label for="petAbout-input"> About this pet </label>
+    <input  id="petAbout-input" type="text" placeholder="About this pet"
+        [(ngModel)]="petInfo.petAbout" name="petAbout">
+    <br> -->
+
      <button> Save Pet </button>
    </form>
  </div>
 
-<p> {{ currentUser.username }}'s Pets  </p>
+
 <!-- <p> {{ currentUser.pets }}  </p> -->
 
 <!--start list of pets-->
 
-<ul>
-  <li *ngFor="let onePet of petArray">
-    <h3> {{ onePet.name }} </h3>
-    <h3> {{ onePet.age }} </h3>
-
-    <a [routerLink]="['/editpet', onePet._id]"> Edit this pet </a>
-
-    <button *ngIf="!isShowingEditPetForm" (click)="showEditPetForm()"> Edit </button>
-
-    <div *ngIf="isShowingEditPetForm">
-    <h3> Edit this pet's information </h3>
-
-    <p *ngIf="saveError" class="error"> {{ saveError }} </p>
-
-    <form (ngSubmit)="updatePet()">
-    <label for="petName-input"> Pet Name </label>
-    <input  id="petName-input" type="text" placeholder="Pet Name"
-        [(ngModel)]="petInfo.petName" name="petName">
-    <br>
-
-    <label for="petAge-input"> Pet Age </label>
-    <input  id="petAge-input" type="text" placeholder="Pet Age"
-        [(ngModel)]="petInfo.petAge" name="petAge">
-    <br>
-
-     <button> update </button>
-   </form>
-  </div>
- </li>
-</ul>
-
-<!--end list of pets-->
-
-<a [routerLink]="['']"> Back to home page </a>

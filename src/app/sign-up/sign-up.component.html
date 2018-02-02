@@ -9,161 +9,109 @@
   </div>
 
 
-<div *ngIf="isLoggedOut">
 
-<!--   <div class="modal fade" id="login" role="dialog">
-    <div class="modal-dialog modal-sm">
- -->
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6">
-      <!-- Modal content no 1-->
-      <div class="modal-content modal-dialog">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title text-center form-title">Sign Up</h4>
-        </div>
-        <div class="modal-body padtrbl">
 
-          <div class="signup-box-body">
-            <p class="signup-box-msg">Enter your info to get started</p>
-            <div class="form-group">
-              <form name="" id="signupForm">
-                <div class="form-group has-feedback">
-                  <!--- username -->
-                  <input [(ngModel)]="signUpInfo.username" name="username" class="form-control" placeholder="Username" id="signupid" type="text" autocomplete="off" />
-                  <span style="display:none;font-weight:bold; position:absolute;color: red;position: absolute;padding:4px;font-size: 11px;background-color:rgba(128, 128, 128, 0.26);z-index: 17;  right: 27px; top: 5px;" id="span_signupid"></span>
-                  <!---Alredy exists  ! -->
-                  <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback">
-                  <!-- password-->
-                  <input [(ngModel)]="signUpInfo.password" name="password" class="form-control" placeholder="Password" id="signuppsw" type="password" autocomplete="off" />
-                  <span style="display:none;font-weight:bold; position:absolute;color: grey;position: absolute;padding:4px;font-size: 11px;background-color:rgba(128, 128, 128, 0.26);z-index: 17;  right: 27px; top: 5px;" id="span_signuppsw"></span>
-                  <!---Alredy exists  ! -->
-                  <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                </div>
-                <div class="row">
-<!--                   <div class="col-xs-12">
-                    <div class="checkbox icheck">
-                      <label>
-                                <input type="checkbox" id="loginrem" > Remember Me
-                              </label>
-                    </div>
-                  </div> -->
-                  <div class="col-xs-12">
-                    <button type="button" class="btn btn-green btn-block btn-flat" onclick="doSignUp()">Sign Up</button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-            <div class="col-sm-6">
-      <!-- Modal content no 1-->
-      <div class="modal-content modal-dialog">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title text-center form-title">Login</h4>
-        </div>
-        <div class="modal-body padtrbl">
 
-          <div class="login-box-body">
-            <p class="login-box-msg">Enter your Username and Password to Sign in</p>
-            <div class="form-group">
-              <form name="" id="loginForm" (ngSubmit)="doLogin()">
-                <div class="form-group has-feedback">
-                  <!--- username -->
-                  <input [(ngModel)]="loginInfo.username" name="username" class="form-control" placeholder="Username" id="loginid" type="text" autocomplete="off" />
-                  <span style="display:none;font-weight:bold; position:absolute;color: red;position: absolute;padding:4px;font-size: 11px;background-color:rgba(128, 128, 128, 0.26);z-index: 17;  right: 27px; top: 5px;" id="span_loginid"></span>
-                  <!---Alredy exists  ! -->
-                  <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback">
-                  <!-- password-->
-                  <input [(ngModel)]="signUpInfo.password" name="password" class="form-control" placeholder="Password" id="loginpsw" type="password" autocomplete="off" />
-                  <span style="display:none;font-weight:bold; position:absolute;color: grey;position: absolute;padding:4px;font-size: 11px;background-color:rgba(128, 128, 128, 0.26);z-index: 17;  right: 27px; top: 5px;" id="span_loginpsw"></span>
-                  <!---Alredy exists  ! -->
-                  <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                </div>
-                <div class="row">
-                  <div class="col-xs-12">
-                    <div class="checkbox icheck">
-                      <label>
-                                <input type="checkbox" id="loginrem" > Remember Me
-                              </label>
-                    </div>
-                  </div>
-                  <div class="col-xs-12">
-                    <button type="button" class="btn btn-green btn-block btn-flat">Sign In</button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    </div>
-  </div>
+
+
 
    <div class="container">
       <div class="row">
         <div class="col-sm-6">
+          <div class="modal-content modal-dialog">
+                  <!-- Modal content no 1-->
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title text-center form-title">Enter your Information</h4>
+            </div>
+            <div class="modal-body padtrbl">
+              <div class="signup-box-body">
+
+<!--               <h2> Home Page </h2>
+              <p> PetCarers </p>
+              <h3> Sign Up </h3>
+              <p *ngIf="errorMessage" class="error">
+                {{ errorMessage }}
+              </p>
+ -->
+              <form (ngSubmit)="doSignUp()">
+                <label for="username-input"> Username </label>
+                <input  id="username-input" type="text" placeholder="Your username"
+                    [(ngModel)]="signUpInfo.username" name="username">
+                <br>
 
 
-  <h2> Home Page </h2>
+                <label for="email-input"> Email </label>
+                <input  id="email-input" type="email" placeholder="email"
+                    [(ngModel)]="signUpInfo.email" name="email">
+                <br>
 
-  <p> PetCarers </p>
+                <label for="password-input"> Password </label>
+                <input  id="password-input" type="password" placeholder="*****"
+                    [(ngModel)]="signUpInfo.password" name="password">
+                <br>
 
-  <h3> Sign Up </h3>
+                <label for="aboutme-input"> About Me </label>
+                <input  id="aboutme-input" type="aboutme" placeholder="Write about yourself"
+                    [(ngModel)]="signUpInfo.aboutme" name="aboutme">
+                <br>
 
-  <p *ngIf="errorMessage" class="error">
-    {{ errorMessage }}
-  </p>
+                <button> Sign Up </button>
+              </form>
 
-  <form (ngSubmit)="doSignUp()">
-    <label for="username-input"> Username </label>
-    <input  id="username-input" type="text" placeholder="Blanche Bourbon"
-        [(ngModel)]="signUpInfo.username" name="username">
-    <br>
+           </div>
+          </div>
+        </div>
+      </div>
 
-    <label for="password-input"> Password </label>
-    <input  id="password-input" type="password" placeholder="*****"
-        [(ngModel)]="signUpInfo.password" name="password">
-    <br>
+        <div class="col-sm-6">
+          <div class="modal-content modal-dialog">
+                  <!-- Modal content no 1-->
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title text-center form-title">Enter info to Login</h4>
+            </div>
+            <div class="modal-body padtrbl">
+              <div class="login-box-body">
 
-    <button> Sign Up </button>
-  </form>
+<!--               <h2> Home Page </h2>
+              <p> PetCarers </p>
+              <h3> Sign Up </h3>
+              <p *ngIf="errorMessage" class="error">
+                {{ errorMessage }}
+              </p> -->
+
+              <form (ngSubmit)="doLogin()">
+                <label for="username-input"> Username </label>
+                <input  id="username-input" type="text" placeholder="Blanche Bourbon"
+                    [(ngModel)]="loginInfo.username" name="username">
+                <br>
 
 
-  <h3> Log In </h3>
+                <label for="password-input"> Password </label>
+                <input  id="password-input" type="password" placeholder="password"
+                    [(ngModel)]="loginInfo.password" name="password">
+                <br>
 
-  <p *ngIf="loginErrorMessage" class="error">
-    {{ loginErrorMessage }}
-  </p>
+                <button> Sign In </button>
+              </form>
 
-  <form (ngSubmit)="doLogin()">
-    <label for="login-username-input"> Email </label>
-    <input  id="login-username-input" type="email" placeholder="hi@example.com"
-        [(ngModel)]="loginInfo.username" name="username">
-    <br>
+           </div>
+          </div>
+        </div>
+      </div>
 
-    <label for="login-pass-input"> Password </label>
-    <input  id="login-pass-input" type="password" placeholder="*****"
-        [(ngModel)]="loginInfo.password" name="loginPassword">
-    <br>
 
-    <button> Log In </button>
-  </form>
-</div>
-</div>
-</div>
-</div>
+
+
+
+
+
+
+
+
 
 
 

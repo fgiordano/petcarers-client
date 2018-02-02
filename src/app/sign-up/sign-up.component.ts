@@ -11,16 +11,12 @@ export class SignUpComponent implements OnInit {
 
 isLoggedOut: boolean = false;
 
-  signUpInfo = {
-    username: '',
-    password: ''
+  signUpInfo:any = {
   };
 
   errorMessage: string;
 
-  loginInfo = {
-    username: '',
-    password: ''
+  loginInfo:any = {
   };
 
   loginErrorMessage: string;

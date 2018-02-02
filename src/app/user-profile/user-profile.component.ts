@@ -26,13 +26,9 @@ export class UserProfileComponent implements OnInit {
 
   logoutError = "";
 
-  currentUser = {
-  username: ''
-  };
+  currentUser:any = {};
 
-  formData = {
-  	username: '',
-  };
+  formData:any = {};
 
   petInfo:any = {};
 
@@ -106,7 +102,8 @@ export class UserProfileComponent implements OnInit {
   	.then((resultFromApi) => {
   		//clear form
   		this.formData = {
-  			username: ' '
+  			username: ' ',
+        aboutme: ' '
   		};
   		//clear error message
   		this.errorMessage = "",
@@ -153,7 +150,9 @@ export class UserProfileComponent implements OnInit {
             this.isShowingAddPetForm = false;
             this.petInfo = {
               petName: "",
-              petAge: ""
+              petAge: "",
+              petAbout: "",
+              petBreed: ""
             };
             this.saveError = "";
         },
@@ -165,8 +164,10 @@ export class UserProfileComponent implements OnInit {
 
   private addPetWithPicture() {
     this.myCoolUploader.onBuildItemForm = (item, form) => {
-        form.append('cpetName', this.petInfo.petName);
+        form.append('petName', this.petInfo.petName);
         form.append('petAge', this.petInfo.petAge);
+        form.append('petBreed', this.petInfo.petBreed);
+        form.append('petAbout', this.petInfo.petAbout);
     };
 
     this.myCoolUploader.onSuccessItem = (item, response) => {
@@ -176,7 +177,9 @@ export class UserProfileComponent implements OnInit {
         this.isShowingAddPetForm = false;
         this.petInfo = {
           petName: "",
-          petAge: ""
+          petAge: "",
+          petBreed: "",
+          petAbout: ""
         };
         this.saveError = "";
     };
