@@ -1,3 +1,54 @@
+.navbar-default .navbar-brand {
+    color: #5FCF80;
+}
+.navbar-default {
+    background-color: #F9F8EB;
+}
+.course-text{
+    padding: 84px;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #717f86;
+    font-size: 14px;
+    font-weight: 700;
+}
+.navbar-nav > li > a{
+    padding: 0px;
+    margin: 10px 5px;
+    padding: 10px 15px;
+}
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover
+{
+    color: #5FCF80;
+}
+
+.navbar-nav .active a{
+    background: none !important;
+    color: #5FCF80 !important;
+    outline: none;
+}
+
+.btn-trial a{
+    background-color: #5FCF80;
+    border-radius: 25px;
+    color: #ffffff !important;
+    border: 1px solid #5FCF80;
+}
+.btn-trial a:hover, .btn-trial a:focus{
+    border: 1px solid #5FCF80;
+    background-color: #fff;
+    color: #5FCF80 !important;
+}
+
+.navbar {
+    margin: 0px 0px;
+}
+
+
+
+
+/*-----banner------------------------*/
+
 .banner{
 /*    background: url('/../img/bg-banner.jpg') no-repeat center top;*/
 /*    background-size: cover;*/
