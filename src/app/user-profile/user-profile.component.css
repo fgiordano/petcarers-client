@@ -79,13 +79,13 @@
 .btn-trial a{
   background-color: #5FCF80;
   border-radius: 25px;
-  color: #ffffff !important;
+  color: #ffffff /*!important*/;
   border: 1px solid #5FCF80;
 }
 .btn-trial a:hover, .btn-trial a:focus{
   border: 1px solid #5FCF80;
   background-color: #fff;
-  color: #5FCF80 !important;
+  color: #5FCF80 /*!important*/;
 }
 .navbar-default .navbar-brand {
     font-family: 'Pacifico', sans-serif /*!important*/;
