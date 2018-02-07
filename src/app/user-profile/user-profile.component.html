@@ -15,6 +15,7 @@
           <li><a href="#courses">Courses</a></li> -->
           <li><a href="#pricing">Hello, {{ currentUser.username }}</a></li>
 <!--           <li><a href="#" data-target="#login" data-toggle="modal">Login</a></li> -->
+          <li class="btn-trial"><a (click)="logMeOutPls()">Log Out</a></li>
           <li class="btn-trial"><a href="#footer">Browse Pet-Carers</a></li>
         </ul>
       </div>
@@ -90,7 +91,7 @@
 
   <p> Hello, {{ currentUser.username }}. </p> -->
 
-  <button (click)="logMeOutPls()"> Log Out </button>
+<!--   <button (click)="logMeOutPls()"> Log Out </button> -->
 
 <!--   <p *ngIf="logoutError" class="error"> {{ logoutError }} </p>
 
