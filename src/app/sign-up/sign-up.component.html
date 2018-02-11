@@ -38,13 +38,13 @@
  -->
               <form (ngSubmit)="doSignUp()">
                 <label for="username-input"> Username </label>
-                <input  id="username-input" type="text" placeholder="Your username"
+                <input  id="username-input" type="text" placeholder="Username"
                     [(ngModel)]="signUpInfo.username" name="username">
                 <br>
 
 
                 <label for="email-input"> Email </label>
-                <input  id="email-input" type="email" placeholder="email"
+                <input  id="email-input" type="email" placeholder="E-mail"
                     [(ngModel)]="signUpInfo.email" name="email">
                 <br>
 
@@ -85,13 +85,13 @@
 
               <form (ngSubmit)="doLogin()">
                 <label for="username-input"> Username </label>
-                <input  id="username-input" type="text" placeholder="Blanche Bourbon"
+                <input  id="username-input" type="text" placeholder="Username"
                     [(ngModel)]="loginInfo.username" name="username">
                 <br>
 
 
                 <label for="password-input"> Password </label>
-                <input  id="password-input" type="password" placeholder="password"
+                <input  id="password-input" type="password" placeholder="Password"
                     [(ngModel)]="loginInfo.password" name="password">
                 <br>
 
