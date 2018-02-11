@@ -18,6 +18,7 @@ import { OtherUserProfileComponent } from './other-user-profile/other-user-profi
 import { EditPetComponent } from './edit-pet/edit-pet.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AllUsersComponent } from './all-users/all-users.component';
+import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { AllUsersComponent } from './all-users/all-users.component';
     OtherUserProfileComponent,
     EditPetComponent,
     NavbarComponent,
-    AllUsersComponent
+    AllUsersComponent,
+    ComingSoonComponent
   ],
   imports: [
     BrowserModule,
