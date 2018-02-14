@@ -6,6 +6,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { OtherUserProfileComponent } from './other-user-profile/other-user-profile.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { EditPetComponent } from './edit-pet/edit-pet.component';
+import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 
 const routes: Routes = [
   {
@@ -27,7 +28,11 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignUpComponent
-  },
+  }
+  {
+    path: 'coming-soon',
+    component: ComingSoonComponent
+  }
   {
     path: '**',
     redirectTo: ''
