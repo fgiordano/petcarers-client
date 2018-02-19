@@ -28,11 +28,11 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignUpComponent
-  }
+  },
   {
     path: 'coming-soon',
     component: ComingSoonComponent
-  }
+  },
   {
     path: '**',
     redirectTo: ''
